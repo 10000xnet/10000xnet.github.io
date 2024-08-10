@@ -126,25 +126,24 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        window.onload = () => {
             const popup = document.getElementById('discord-popup');
-            const discordLink = document.getElementById('discord-link');
 
-            discordLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                popup.style.display = 'flex'; // Display the popup
-            });
+            // Display the popup automatically when the page is loaded
+            popup.style.display = 'flex';
 
+            // Hide popup when the close button is clicked
             document.getElementById('close-popup').addEventListener('click', () => {
-                popup.style.display = 'none'; // Hide the popup
+                popup.style.display = 'none'; 
             });
 
+            // Hide popup when clicking outside of the popup content
             window.addEventListener('click', (event) => {
                 if (event.target === popup) {
-                    popup.style.display = 'none'; // Hide when clicking outside
+                    popup.style.display = 'none';
                 }
             });
-        });
+        };
     </script>
 </body>
 </html>
