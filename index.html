@@ -79,11 +79,6 @@
             width: 90%;
             max-width: 600px; /* Wider and more balanced dimensions */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-            transition: transform 0.3s ease-out; /* Smooth transform on open */
-        }
-
-        .popup-content:target {
-            transform: scale(1.05); /* Slight scale to draw attention */
         }
 
         .close-btn {
@@ -104,7 +99,6 @@
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
-            transition: background-color 0.3s; /* Smooth background color transition on hover */
         }
 
         .join-btn:hover {
@@ -132,29 +126,23 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
+        document.addEventListener('DOMContentLoaded', () => {
             const popup = document.getElementById('discord-popup');
-            const closeBtn = document.getElementById('close-popup');
             const discordLink = document.getElementById('discord-link');
 
-            if (!localStorage.getItem('popupShown')) {
-                popup.style.display = 'flex';
-                localStorage.setItem('popupShown', 'true');
-            }
+            discordLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                popup.style.display = 'flex'; // Display the popup
+            });
 
-            closeBtn.addEventListener('click', () => {
-                popup.style.display = 'none';
+            document.getElementById('close-popup').addEventListener('click', () => {
+                popup.style.display = 'none'; // Hide the popup
             });
 
             window.addEventListener('click', (event) => {
                 if (event.target === popup) {
-                    popup.style.display = 'none';
+                    popup.style.display = 'none'; // Hide when clicking outside
                 }
-            });
-
-            discordLink.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default link behavior
-                popup.style.display = 'flex';
             });
         });
     </script>
