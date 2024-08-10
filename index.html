@@ -4,31 +4,34 @@
 <head>
     <title>10000x.net</title>
     <style>
-        html {
-            background: url(/hm.jpg) no-repeat center center fixed;
-            background-size: contain;
-            background-position: center;
-            background-color: #000000;
-            padding: 0; /* Remove padding */
-            margin: 0; /* Remove margin */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Prevent scrolling */
         }
 
         body {
-            width: 100%;
-            max-width: 960px;
-            margin: 0 auto;
-            position: relative;
+            background: url(/hm.jpg) no-repeat center center fixed;
+            background-size: cover; /* Cover the whole background */
+            background-color: #000000;
         }
 
         nav {
-            width: 70%;
+            width: 100%;
             background: #0043d4; /* Set background color for the navigation bar */
-            padding: 2px 0; /* Add some top and bottom padding to the navigation bar */
+            padding: 10px 0; /* Add some top and bottom padding to the navigation bar */
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 100; /* Ensure the nav is on top of other elements */
         }
 
         nav ul {
             list-style: none;
-            overflow: hidden;
+            margin: 0;
+            padding: 0;
             text-align: center; /* Center-align the navigation links */
         }
 
@@ -45,7 +48,7 @@
             font-weight: bold;
             font-family: Arial, sans-serif;
             text-decoration: none;
-            padding: 5px 10px; /* Add padding to menu items */
+            padding: 10px 15px; /* Adjust padding for better appearance */
             border-radius: 8px; /* Add border-radius for rounded corners */
         }
 
