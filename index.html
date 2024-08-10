@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>10000x.net</title>
     <style>
@@ -16,6 +15,7 @@
             background-size: contain; /* Maintain proportions and fit within the viewport */
             background-color: #000000;
             background-repeat: no-repeat; /* Prevent repeating the background image */
+            padding-top: 50px; /* Add buffer equal to the height of the nav bar */
         }
 
         nav {
@@ -23,7 +23,7 @@
             background: #0043d4; /* Set background color for the navigation bar */
             padding: 10px 0; /* Add some top and bottom padding to the navigation bar */
             box-sizing: border-box;
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             z-index: 100; /* Ensure the nav is on top of other elements */
@@ -115,28 +115,16 @@
         }
     </style>
 </head>
-
 <body>
     <nav>
         <ul>
-            <li>
-                <a href="/">HOME</a>
-            </li>
-            <li>
-                <a href="/shop.html">SHOP</a>
-            </li>
-            <li>
-                <a href="/about.html">ABOUT</a>
-            </li>
-            <li>
-                <a href="mailto:admin@10000x.net">CONTACT</a>
-            </li>
-            <li>
-                <a href="#" id="discord-link">[[ JOIN DISCORD ]]</a>
-            </li>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/shop.html">SHOP</a></li>
+            <li><a href="/about.html">ABOUT</a></li>
+            <li><a href="mailto:admin@10000x.net">CONTACT</a></li>
+            <li><a href="#" id="discord-link">[[ JOIN DISCORD ]]</a></li>
         </ul>
     </nav>
-
     <!-- Popup HTML -->
     <div id="discord-popup" class="popup">
         <div class="popup-content">
@@ -152,27 +140,21 @@
             const closeBtn = document.getElementById('close-popup');
             const discordLink = document.getElementById('discord-link');
 
-            // Show popup on first visit
             if (!localStorage.getItem('popupShown')) {
                 popup.style.display = 'flex';
-
-                // Mark popup as shown
                 localStorage.setItem('popupShown', 'true');
             }
 
-            // Close popup
             closeBtn.addEventListener('click', () => {
                 popup.style.display = 'none';
             });
 
-            // Optional: Close popup when clicking outside of content
             window.addEventListener('click', (event) => {
                 if (event.target === popup) {
                     popup.style.display = 'none';
                 }
             });
 
-            // Open popup when clicking "JOIN DISCORD"
             discordLink.addEventListener('click', (e) => {
                 e.preventDefault(); // Prevent default link behavior
                 popup.style.display = 'flex';
@@ -180,5 +162,4 @@
         });
     </script>
 </body>
-
 </html>
