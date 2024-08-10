@@ -17,6 +17,7 @@
             width: 100%;
             max-width: 960px;
             margin: 0 auto;
+            position: relative;
         }
 
         nav {
@@ -61,6 +62,53 @@
             border-top-right-radius: 8px;
             border-bottom-right-radius: 8px;
         }
+
+        /* Popup Styles */
+        .popup {
+            display: none; /* Hidden by default */
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .join-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #7289da;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .join-btn:hover {
+            background-color: #5b6eae;
+        }
     </style>
 </head>
 
@@ -80,10 +128,53 @@
                 <a href="mailto:admin@10000x.net">CONTACT</a>
             </li>
             <li>
-                <a href="https://discord.gg/AkGGBegAgf">[[ JOIN DISCORD ]]</a>
+                <a href="#" id="discord-link">[[ JOIN DISCORD ]]</a>
             </li>
-
         </ul>
     </nav>
+
+    <!-- Popup HTML -->
+    <div id="discord-popup" class="popup">
+        <div class="popup-content">
+            <span id="close-popup" class="close-btn">&times;</span>
+            <h2>Join Our Discord!</h2>
+            <a href="https://discord.gg/AkGGBegAgf" class="join-btn" target="_blank">JOIN DISCORD</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const popup = document.getElementById('discord-popup');
+            const closeBtn = document.getElementById('close-popup');
+            const discordLink = document.getElementById('discord-link');
+
+            // Show popup on first visit
+            if (!localStorage.getItem('popupShown')) {
+                popup.style.display = 'flex';
+
+                // Mark popup as shown
+                localStorage.setItem('popupShown', 'true');
+            }
+
+            // Close popup
+            closeBtn.addEventListener('click', () => {
+                popup.style.display = 'none';
+            });
+
+            // Optional: Close popup when clicking outside of content
+            window.addEventListener('click', (event) => {
+                if (event.target === popup) {
+                    popup.style.display = 'none';
+                }
+            });
+
+            // Open popup when clicking "JOIN DISCORD"
+            discordLink.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default link behavior
+                popup.style.display = 'flex';
+            });
+        });
+    </script>
 </body>
+
 </html>
