@@ -57,17 +57,7 @@
             background: #0f0245;
         }
 
-        nav ul li:first-child a {
-            border-top-left-radius: 8px;
-            border-bottom-left-radius: 8px;
-        }
-
-        nav ul li:last-child a {
-            border-top-right-radius: 8px;
-            border-bottom-right-radius: 8px;
-        }
-
-        /* Popup Styles */
+        /* Popup Styles - More Professional Look */
         .popup {
             display: none; /* Hidden by default */
             position: fixed;
@@ -75,7 +65,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for better focus on popup */
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -83,12 +73,17 @@
 
         .popup-content {
             background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 25px;
+            border-radius: 15px; /* Smoother border radius */
             text-align: center;
-            width: 80%;
-            max-width: 400px;
-            position: relative;
+            width: 90%;
+            max-width: 600px; /* Wider and more balanced dimensions */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            transition: transform 0.3s ease-out; /* Smooth transform on open */
+        }
+
+        .popup-content:target {
+            transform: scale(1.05); /* Slight scale to draw attention */
         }
 
         .close-btn {
@@ -97,21 +92,23 @@
             right: 10px;
             font-size: 24px;
             cursor: pointer;
+            color: #333; /* Darker color for better contrast */
         }
 
         .join-btn {
             display: inline-block;
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #7289da;
+            background-color: #0043d4; /* Thematic consistency with navigation bar */
             color: #fff;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: bold;
+            transition: background-color 0.3s; /* Smooth background color transition on hover */
         }
 
         .join-btn:hover {
-            background-color: #5b6eae;
+            background-color: #0032a0;
         }
     </style>
 </head>
