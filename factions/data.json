@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-03-01T16:07:58.570405+00:00",
+  "generated_utc": "2026-03-01T16:15:55.874560+00:00",
   "count": 12,
   "factions": [
     {
@@ -174,7 +174,7 @@
         "Deathbybacon443"
       ],
       "flag_emoji": ":rooster:",
-      "flag_img_url": "",
+      "flag_img_url": "/factions/flags/rooster.png",
       "armband": "",
       "description": "Straight shooters in this Faction",
       "slug": "tmc"
