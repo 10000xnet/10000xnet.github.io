@@ -21,7 +21,7 @@
 	  margin: 0;
 	}
 	a { color: inherit; text-decoration: none; }
-	.wrap { max-width: 900px; margin: 0 auto; padding: 24px 16px 60px; }
+	.wrap { max-width: 920px; margin: 0 auto; padding: 24px 16px 60px; }
 	.back { color: var(--muted); font-size: 13px; }
 	.card {
 	  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.035));
@@ -32,7 +32,7 @@
 	  margin-top: 12px;
 	}
 	.head { display:flex; align-items:center; justify-content:space-between; gap: 12px; }
-	.name { display:flex; align-items:center; gap: 12px; }
+	.name { display:flex; align-items:center; gap: 12px; min-width: 0; }
 	.flag {
 	  width: 56px; height: 56px;
 	  border-radius: 14px;
@@ -44,7 +44,14 @@
 	}
 	.flag img { width: 100%; height: 100%; object-fit: cover; display:block; }
 	.flag .emo { font-size: 26px; color: rgba(255,255,255,0.85); }
-	h1 { margin: 0; font-size: 22px; }
+	h1 {
+	  margin: 0;
+	  font-size: 22px;
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	  max-width: 600px;
+	}
 	.badge {
 	  font-size: 12px;
 	  padding: 4px 8px;
@@ -65,7 +72,7 @@
 	.k .t { font-size: 11px; color: var(--muted); }
 	.k .v { font-size: 13px; margin-top: 2px; }
 	.lists { display:grid; grid-template-columns: 1fr; gap: 12px; margin-top: 12px; }
-	@media (min-width: 840px) {
+	@media (min-width: 860px) {
 	  .lists { grid-template-columns: 1fr 1fr; }
 	}
 	ul { margin: 8px 0 0; padding-left: 18px; }
@@ -86,9 +93,9 @@
 	  <div class="head">
 		<div class="name">
 		  <span class="flag"><img src="/factions/flags/dayz.png" alt="flag" /></span>
-		  <div>
+		  <div style="min-width:0;">
 			<h1>KILLBILLIES</h1>
-			<div style="color:var(--muted);font-size:13px;margin-top:3px;">Updated: 2026-03-01T16:02:43.737847+00:00</div>
+			<div style="color:var(--muted);font-size:13px;margin-top:3px;">Updated: 2026-03-01T16:07:58.572014+00:00</div>
 		  </div>
 		</div>
 		<span class="badge">KB</span>
@@ -96,28 +103,50 @@
 
 	  <div class="desc"><span style="color:var(--muted)">(no description)</span></div>
 
+	  <!-- KV: Leader box contains Co-Leaders (compact) -->
 	  <div class="kv">
 		<div class="k">
 		  <div class="t">Leader</div>
 		  <div class="v"><code>GRANDMASBOXX</code></div>
+
+		  <div style="margin-top:8px;">
+			<div class="t">Co-Leaders</div>
+			<div class="v"><code>—</code></div>
+		  </div>
 		</div>
+
 		<div class="k">
 		  <div class="t">Armband</div>
 		  <div class="v"><code>DayZ</code></div>
+
+		  <div style="margin-top:8px;">
+			<div class="t">Roster Size</div>
+			<div class="v"><code>4</code></div>
+		  </div>
 		</div>
 	  </div>
 
+	  <!-- Lists: Members left; Stats placeholder right -->
 	  <div class="lists">
 		<div class="k">
-		  <div class="t">Co-Leaders (0)</div>
-		  <ul><li style='color:var(--muted)'>(none)</li></ul>
-		</div>
-		<div class="k">
 		  <div class="t">Members (4)</div>
-		  <ul><li><code>GRANDMASBOXX</code></li>
+		  <ul>
+			<li><code>GRANDMASBOXX</code></li>
 <li><code>Gr1m R34p3r2011</code></li>
 <li><code>TexasFMdj</code></li>
-<li><code>KingLuck8783</code></li></ul>
+<li><code>KingLuck8783</code></li>
+		  </ul>
+		</div>
+
+		<div class="k">
+		  <div class="t">Faction Stats (coming soon)</div>
+		  <ul>
+			<li style="color:var(--muted)">Kills: —</li>
+			<li style="color:var(--muted)">Deaths: —</li>
+			<li style="color:var(--muted)">K/D: —</li>
+			<li style="color:var(--muted)">Territory: —</li>
+			<li style="color:var(--muted)">Last Active: —</li>
+		  </ul>
 		</div>
 	  </div>
 	</div>
