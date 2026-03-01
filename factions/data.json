@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-03-01T16:01:12.252796+00:00",
+  "generated_utc": "2026-03-01T16:02:43.736400+00:00",
   "count": 12,
   "factions": [
     {
@@ -21,7 +21,7 @@
         "LandShark8858"
       ],
       "flag_emoji": ":uec:",
-      "flag_img_url": "./flags/uec.png",
+      "flag_img_url": "/factions/flags/uec.png",
       "armband": "HunterZ",
       "description": "",
       "slug": "ar"
@@ -40,7 +40,7 @@
         "KuruKillerM4"
       ],
       "flag_emoji": ":brain:",
-      "flag_img_url": "./flags/brain.png",
+      "flag_img_url": "/factions/flags/brain.png",
       "armband": "BrainZ",
       "description": "",
       "slug": "ca"
@@ -63,7 +63,7 @@
         "the3443one"
       ],
       "flag_emoji": ":snake:",
-      "flag_img_url": "./flags/snake.png",
+      "flag_img_url": "/factions/flags/snake.png",
       "armband": "Snake",
       "description": "",
       "slug": "dco"
@@ -81,7 +81,7 @@
         "KingLuck8783"
       ],
       "flag_emoji": ":dayz:",
-      "flag_img_url": "./flags/dayz.png",
+      "flag_img_url": "/factions/flags/dayz.png",
       "armband": "DayZ",
       "description": "",
       "slug": "kb"
@@ -105,7 +105,7 @@
         "VXMdefcon"
       ],
       "flag_emoji": ":ldf:",
-      "flag_img_url": "./flags/ldf.png",
+      "flag_img_url": "/factions/flags/ldf.png",
       "armband": "",
       "description": "",
       "slug": "ors"
@@ -125,7 +125,7 @@
         "InsertBadGtHere"
       ],
       "flag_emoji": ":rex:",
-      "flag_img_url": "./flags/rex.png",
+      "flag_img_url": "/factions/flags/rex.png",
       "armband": "Rex",
       "description": "",
       "slug": "ssa"
@@ -140,7 +140,7 @@
         "ArsenicWall"
       ],
       "flag_emoji": ":rsta:",
-      "flag_img_url": "./flags/rsta.png",
+      "flag_img_url": "/factions/flags/rsta.png",
       "armband": "",
       "description": "",
       "slug": "sos"
@@ -156,7 +156,7 @@
         "BradfordM1991"
       ],
       "flag_emoji": ":cannibal:",
-      "flag_img_url": "./flags/cannibal.png",
+      "flag_img_url": "/factions/flags/cannibal.png",
       "armband": "",
       "description": "description here",
       "slug": "crp"
@@ -206,7 +206,7 @@
         "SUS3243"
       ],
       "flag_emoji": ":police:",
-      "flag_img_url": "./flags/police.png",
+      "flag_img_url": "/factions/flags/police.png",
       "armband": "Red",
       "description": "For every action there’s a reaction!",
       "slug": "tog"
@@ -232,7 +232,7 @@
         "Kookahyna"
       ],
       "flag_emoji": ":zenit:",
-      "flag_img_url": "./flags/zenit.png",
+      "flag_img_url": "/factions/flags/zenit.png",
       "armband": "",
       "description": "",
       "slug": "zen"
@@ -247,7 +247,7 @@
         "Defoplayz123"
       ],
       "flag_emoji": ":ssahrani:",
-      "flag_img_url": "./flags/ssahrani.png",
+      "flag_img_url": "/factions/flags/ssahrani.png",
       "armband": "",
       "description": "update me",
       "slug": "vx"
