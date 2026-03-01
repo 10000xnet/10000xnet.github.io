@@ -33,7 +33,6 @@
 	  padding: 18px 16px 60px;
 	}
 
-	/* top nav (matches factions vibe) */
 	.nav {
 	  display:flex;
 	  align-items:center;
@@ -90,20 +89,6 @@
 	  border-color: rgba(194,124,14,0.30);
 	}
 
-	/* hero */
-	.hero {
-	  display:grid;
-	  grid-template-columns: 1fr;
-	  gap: 14px;
-	}
-
-	@media (min-width: 980px) {
-	  .hero {
-		grid-template-columns: 1.1fr 0.9fr;
-		align-items: start;
-	  }
-	}
-
 	.card {
 	  background: linear-gradient(180deg, var(--cardA), var(--cardB));
 	  border: 1px solid var(--line);
@@ -112,13 +97,13 @@
 	  overflow: hidden;
 	}
 
-	.card.pad {
+	.pad {
 	  padding: 16px;
 	}
 
 	h1 {
 	  margin: 0;
-	  font-size: 28px;
+	  font-size: 26px;
 	  letter-spacing: 0.2px;
 	}
 
@@ -129,38 +114,9 @@
 	  line-height: 1.35;
 	}
 
-	.kvs {
-	  display:grid;
-	  grid-template-columns: 1fr;
-	  gap: 10px;
-	  margin-top: 14px;
-	}
-
-	@media (min-width: 980px) {
-	  .kvs {
-		grid-template-columns: 1fr 1fr;
-	  }
-	}
-
-	.kv {
-	  background: rgba(255,255,255,0.04);
-	  border: 1px solid var(--line);
-	  border-radius: 14px;
-	  padding: 10px 12px;
-	}
-
-	.kv .t {
-	  font-size: 11px;
-	  color: var(--muted);
-	}
-
-	.kv .v {
-	  margin-top: 2px;
-	  font-size: 13px;
-	}
-
-	/* heatmap */
+	/* Full width heatmap */
 	.heatmap-wrap {
+	  margin-top: 14px;
 	  position: relative;
 	  display:flex;
 	  align-items:center;
@@ -172,7 +128,7 @@
 	  width: 100%;
 	  height: auto;
 	  display:block;
-	  max-height: 78vh;
+	  max-height: 80vh;
 	  object-fit: contain;
 	}
 
@@ -294,7 +250,7 @@
 	}
 
 	.footer {
-	  margin-top: 16px;
+	  margin-top: 10px;
 	  color: rgba(255,255,255,0.45);
 	  font-size: 12px;
 	  text-align:center;
@@ -319,42 +275,24 @@
 	  </div>
 	</div>
 
-	<div class="hero">
-	  <div class="card pad">
-		<h1>Live Heatmap</h1>
-		<div class="sub">
-		  A quick snapshot of activity across the map. Want in? Join the Discord and pick your faction.
-		</div>
-
-		<div class="kvs">
-		  <div class="kv">
-			<div class="t">Quick Links</div>
-			<div class="v">
-			  <a class="pill" style="margin-top:8px" href="/factions/">🛡️ Factions</a>
-			  <a class="pill" style="margin-top:8px" href="/shop/">🛒 Shop</a>
-			  <a class="pill" style="margin-top:8px" href="/about/">ℹ️ About</a>
-			</div>
-		  </div>
-
-		  <div class="kv">
-			<div class="t">Status</div>
-			<div class="v">Updated automatically by SS9 bot (public output <code>hm.jpg</code>).</div>
-			<div class="v" style="margin-top:8px;color:var(--muted);font-size:12px;">Tip: if the image looks cached, refresh once — it has a timestamp cache-buster.</div>
-		  </div>
-		</div>
-
-		<div class="footer">Test page: <code>/index2.html</code> • Generated: 2026-03-01T16:15:55.870555+00:00</div>
+	<!-- Header above heatmap -->
+	<div class="card pad">
+	  <h1>Live Heatmap</h1>
+	  <div class="sub">
+		A quick snapshot of activity across the map. Join Discord to get whitelisted and factioned up.
 	  </div>
+	  <div class="footer">Test page: <code>/index2.html</code> • Generated: 2026-03-01T16:19:01.880253+00:00</div>
+	</div>
 
-	  <div class="card heatmap-wrap">
-		<img class="heatmap" src="/hm.jpg?v=1772381755" alt="10000x Heatmap" />
-		<div class="heatmap-bar">
-		  <div class="left">
-			<div class="t">10000x Live Heatmap</div>
-			<div class="s">Click JOIN DISCORD to get whitelisted + factioned up.</div>
-		  </div>
-		  <button class="btn" id="openDiscord2" type="button">JOIN DISCORD</button>
+	<!-- Full width heatmap -->
+	<div class="card heatmap-wrap">
+	  <img class="heatmap" src="/hm.jpg?v=1772381941" alt="10000x Heatmap" />
+	  <div class="heatmap-bar">
+		<div class="left">
+		  <div class="t">10000x Live Heatmap</div>
+		  <div class="s">Click JOIN DISCORD to get started.</div>
 		</div>
+		<button class="btn" id="openDiscord2" type="button">JOIN DISCORD</button>
 	  </div>
 	</div>
   </div>
@@ -364,9 +302,7 @@
 	<div class="modal" role="dialog" aria-modal="true" aria-label="Join Discord">
 	  <button class="x" id="closeModal" aria-label="Close">×</button>
 	  <h2>Join Our Discord</h2>
-	  <p>
-		Factions, events, rules, and support live here. Click below to join:
-	  </p>
+	  <p>Factions, events, rules, and support live here. Click below to join:</p>
 	  <a class="btn" href="https://discord.gg/10000x" target="_blank" rel="noopener noreferrer">JOIN DISCORD</a>
 	  <div style="margin-top:12px;color:var(--muted);font-size:12px;">
 		Invite: <code>https://discord.gg/10000x</code>
