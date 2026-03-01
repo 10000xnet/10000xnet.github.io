@@ -1,0 +1,268 @@
+{
+  "generated_utc": "2026-03-01T15:53:50.448293+00:00",
+  "count": 12,
+  "factions": [
+    {
+      "id": 7,
+      "name": "Ashen Reavens",
+      "short": "ar",
+      "leader": "Noriega 822",
+      "co_leaders": [],
+      "members": [
+        "Noriega 822",
+        "sevo881311",
+        "Born2Die765",
+        "DooM4L",
+        "petro1x1hi",
+        "RAW FlatterTAM",
+        "g u n b u I I",
+        "Ttv exotic z545",
+        "KizerOG",
+        "LandShark8858"
+      ],
+      "flag_emoji": ":uec:",
+      "flag_name": "",
+      "flag_img_url": "",
+      "armband": "HunterZ",
+      "description": "",
+      "slug": "ar"
+    },
+    {
+      "id": 14,
+      "name": "Cherno Assassins",
+      "short": "ca",
+      "leader": "TalkkSick",
+      "co_leaders": [],
+      "members": [
+        "TalkkSick",
+        "Sirpassthat",
+        "DayZgoBye3172",
+        "frothski",
+        "KuruKillerM4"
+      ],
+      "flag_emoji": ":brain:",
+      "flag_name": "",
+      "flag_img_url": "",
+      "armband": "BrainZ",
+      "description": "",
+      "slug": "ca"
+    },
+    {
+      "id": 23,
+      "name": "DEMON CO",
+      "short": "dco",
+      "leader": "NXCKMICH",
+      "co_leaders": [],
+      "members": [
+        "NXCKMICH",
+        "ON3 QUIK SC0P3",
+        "DemonCoTyler",
+        "vDUTCHvSMOKERv",
+        "King Cobalt8146",
+        "EatSomeCrack69",
+        "CptDrift420",
+        "GODZIIRRRRA",
+        "the3443one"
+      ],
+      "flag_emoji": ":snake:",
+      "flag_name": "",
+      "flag_img_url": "",
+      "armband": "Snake",
+      "description": "",
+      "slug": "dco"
+    },
+    {
+      "id": 22,
+      "name": "KILLBILLIES",
+      "short": "kb",
+      "leader": "GRANDMASBOXX",
+      "co_leaders": [],
+      "members": [
+        "GRANDMASBOXX",
+        "Gr1m R34p3r2011",
+        "TexasFMdj",
+        "KingLuck8783"
+      ],
+      "flag_emoji": ":dayz:",
+      "flag_name": "",
+      "flag_img_url": "",
+      "armband": "DayZ",
+      "description": "",
+      "slug": "kb"
+    },
+    {
+      "id": 8,
+      "name": "Order of the Royal Stags",
+      "short": "ors",
+      "leader": "CognitiveBag",
+      "co_leaders": [],
+      "members": [
+        "CognitiveBag",
+        "doddstuntqc",
+        "ismastube3",
+        "runbennierun399",
+        "tegridygreen",
+        "ThepxychoBH",
+        "TwistdGod710",
+        "HighM3Z",
+        "WAXJACKAL66",
+        "VXMdefcon"
+      ],
+      "flag_emoji": ":ldf:",
+      "flag_name": "",
+      "flag_img_url": "",
+      "armband": "",
+      "description": "",
+      "slug": "ors"
+    },
+    {
+      "id": 18,
+      "name": "S.S. Assulters",
+      "short": "ssa",
+      "leader": "QSz MONSTER",
+      "co_leaders": [],
+      "members": [
+        "QSz MONSTER",
+        "UnusedHeart2913",
+        "Biajio",
+        "BaconWasteland3",
+        "chevygonemuding",
+        "InsertBadGtHere"
+      ],
+      "flag_emoji": ":rex:",
+      "flag_name": "",
+      "flag_img_url": "",
+      "armband": "Rex",
+      "description": "",
+      "slug": "ssa"
+    },
+    {
+      "id": 19,
+      "name": "Sons of Silence",
+      "short": "sos",
+      "leader": "ArsenicWall",
+      "co_leaders": [],
+      "members": [
+        "ArsenicWall"
+      ],
+      "flag_emoji": ":rsta:",
+      "flag_name": "",
+      "flag_img_url": "",
+      "armband": "",
+      "description": "",
+      "slug": "sos"
+    },
+    {
+      "id": 24,
+      "name": "The Cripples",
+      "short": "crp",
+      "leader": "E D M TEKNO",
+      "co_leaders": [],
+      "members": [
+        "E D M TEKNO",
+        "BradfordM1991"
+      ],
+      "flag_emoji": ":cannibal:",
+      "flag_name": "",
+      "flag_img_url": "",
+      "armband": "",
+      "description": "description here",
+      "slug": "crp"
+    },
+    {
+      "id": 20,
+      "name": "The Mother Cluckers",
+      "short": "tmc",
+      "leader": "Loko De Hialeah",
+      "co_leaders": [],
+      "members": [
+        "Loko De Hialeah",
+        "R3vJimJ0n3s",
+        "DaGrimReeper74",
+        "Deathbybacon443"
+      ],
+      "flag_emoji": ":rooster:",
+      "flag_name": "",
+      "flag_img_url": "",
+      "armband": "",
+      "description": "Straight shooters in this Faction",
+      "slug": "tmc"
+    },
+    {
+      "id": 15,
+      "name": "The Old Guard",
+      "short": "tog",
+      "leader": "wade1235679",
+      "co_leaders": [
+        "PoppaSnipe"
+      ],
+      "members": [
+        "PoppaSnipe",
+        "wade1235679",
+        "vvDerrixk",
+        "KREEPINxKILLA",
+        "Kriptic eye",
+        "Matsaev3775",
+        "ID IE V T IH",
+        "CARTELTERROR786",
+        "SatyrStriker",
+        "XentityX9217",
+        "SlickCanadian",
+        "ykSpifxy",
+        "D3VOT10N",
+        "LdbSnipe",
+        "SocialTV559",
+        "SUS3243"
+      ],
+      "flag_emoji": ":police:",
+      "flag_name": "",
+      "flag_img_url": "",
+      "armband": "Red",
+      "description": "For every action there’s a reaction!",
+      "slug": "tog"
+    },
+    {
+      "id": 9,
+      "name": "The Zenitors",
+      "short": "zen",
+      "leader": "babyblue1422",
+      "co_leaders": [],
+      "members": [
+        "babyblue1422",
+        "DrunkO Driscoll",
+        "SlumDawg6173",
+        "OldGuy598103",
+        "megahurtme",
+        "MONSTER132546",
+        "O BLACK 1",
+        "Duckman4201109",
+        "SubieSaiyan94",
+        "SpongyPrince9",
+        "cpt whupas",
+        "Kookahyna"
+      ],
+      "flag_emoji": ":zenit:",
+      "flag_name": "",
+      "flag_img_url": "",
+      "armband": "",
+      "description": "",
+      "slug": "zen"
+    },
+    {
+      "id": 16,
+      "name": "Vortex",
+      "short": "vx",
+      "leader": "Defoplayz123",
+      "co_leaders": [],
+      "members": [
+        "Defoplayz123"
+      ],
+      "flag_emoji": ":ssahrani:",
+      "flag_name": "",
+      "flag_img_url": "",
+      "armband": "",
+      "description": "update me",
+      "slug": "vx"
+    }
+  ]
+}
