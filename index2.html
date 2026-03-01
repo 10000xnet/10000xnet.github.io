@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>10000x.net</title>
+
+  <style>
+	:root {
+	  --bg: #0b0f14;
+	  --text: rgba(255,255,255,0.92);
+	  --muted: rgba(255,255,255,0.62);
+	  --gold: #c27c0e;
+	  --line: rgba(255,255,255,0.10);
+	  --cardA: rgba(255,255,255,0.06);
+	  --cardB: rgba(255,255,255,0.035);
+	}
+
+	html, body {
+	  background: radial-gradient(1200px 800px at 20% 0%, rgba(194,124,14,0.14), transparent 55%),
+				  radial-gradient(1200px 800px at 85% 20%, rgba(0,160,255,0.10), transparent 50%),
+				  var(--bg);
+	  color: var(--text);
+	  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+	  margin: 0;
+	}
+
+	a { color: inherit; text-decoration: none; }
+
+	.wrap {
+	  max-width: 1180px;
+	  margin: 0 auto;
+	  padding: 18px 16px 60px;
+	}
+
+	/* top nav (matches factions vibe) */
+	.nav {
+	  display:flex;
+	  align-items:center;
+	  justify-content:space-between;
+	  gap: 14px;
+	  border-bottom: 1px solid var(--line);
+	  padding: 10px 0 14px;
+	  margin-bottom: 18px;
+	}
+
+	.brand {
+	  display:flex;
+	  align-items:center;
+	  gap: 10px;
+	  font-weight: 900;
+	  letter-spacing: 0.2px;
+	}
+
+	.brand .dot {
+	  width: 10px; height: 10px;
+	  border-radius: 999px;
+	  background: rgba(194,124,14,0.9);
+	  box-shadow: 0 0 0 4px rgba(194,124,14,0.18);
+	}
+
+	.links {
+	  display:flex;
+	  align-items:center;
+	  gap: 10px;
+	  flex-wrap: wrap;
+	  justify-content: flex-end;
+	}
+
+	.pill {
+	  display:inline-flex;
+	  align-items:center;
+	  gap: 8px;
+	  padding: 9px 12px;
+	  border-radius: 999px;
+	  background: rgba(255,255,255,0.05);
+	  border: 1px solid var(--line);
+	  color: rgba(255,255,255,0.88);
+	  font-size: 13px;
+	  transition: transform 120ms ease, border-color 120ms ease;
+	}
+
+	.pill:hover {
+	  transform: translateY(-1px);
+	  border-color: rgba(194,124,14,0.35);
+	}
+
+	.pill.gold {
+	  background: rgba(194,124,14,0.14);
+	  border-color: rgba(194,124,14,0.30);
+	}
+
+	/* hero */
+	.hero {
+	  display:grid;
+	  grid-template-columns: 1fr;
+	  gap: 14px;
+	}
+
+	@media (min-width: 980px) {
+	  .hero {
+		grid-template-columns: 1.1fr 0.9fr;
+		align-items: start;
+	  }
+	}
+
+	.card {
+	  background: linear-gradient(180deg, var(--cardA), var(--cardB));
+	  border: 1px solid var(--line);
+	  border-radius: 18px;
+	  box-shadow: 0 14px 40px rgba(0,0,0,0.20);
+	  overflow: hidden;
+	}
+
+	.card.pad {
+	  padding: 16px;
+	}
+
+	h1 {
+	  margin: 0;
+	  font-size: 28px;
+	  letter-spacing: 0.2px;
+	}
+
+	.sub {
+	  margin-top: 8px;
+	  color: var(--muted);
+	  font-size: 14px;
+	  line-height: 1.35;
+	}
+
+	.kvs {
+	  display:grid;
+	  grid-template-columns: 1fr;
+	  gap: 10px;
+	  margin-top: 14px;
+	}
+
+	@media (min-width: 980px) {
+	  .kvs {
+		grid-template-columns: 1fr 1fr;
+	  }
+	}
+
+	.kv {
+	  background: rgba(255,255,255,0.04);
+	  border: 1px solid var(--line);
+	  border-radius: 14px;
+	  padding: 10px 12px;
+	}
+
+	.kv .t {
+	  font-size: 11px;
+	  color: var(--muted);
+	}
+
+	.kv .v {
+	  margin-top: 2px;
+	  font-size: 13px;
+	}
+
+	/* heatmap */
+	.heatmap-wrap {
+	  position: relative;
+	  display:flex;
+	  align-items:center;
+	  justify-content:center;
+	  background: rgba(0,0,0,0.22);
+	}
+
+	.heatmap {
+	  width: 100%;
+	  height: auto;
+	  display:block;
+	  max-height: 78vh;
+	  object-fit: contain;
+	}
+
+	.heatmap-bar {
+	  position: absolute;
+	  left: 12px;
+	  right: 12px;
+	  bottom: 12px;
+	  display:flex;
+	  align-items:center;
+	  justify-content:space-between;
+	  gap: 10px;
+	  padding: 10px 12px;
+	  border-radius: 14px;
+	  background: rgba(11,15,20,0.72);
+	  border: 1px solid rgba(255,255,255,0.10);
+	  backdrop-filter: blur(8px);
+	}
+
+	.heatmap-bar .left {
+	  display:flex;
+	  flex-direction: column;
+	  gap: 2px;
+	  min-width: 0;
+	}
+
+	.heatmap-bar .left .t {
+	  font-size: 12px;
+	  color: rgba(255,255,255,0.88);
+	  font-weight: 800;
+	  letter-spacing: 0.2px;
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	}
+
+	.heatmap-bar .left .s {
+	  font-size: 11px;
+	  color: var(--muted);
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	}
+
+	.btn {
+	  cursor: pointer;
+	  display:inline-flex;
+	  align-items:center;
+	  justify-content:center;
+	  gap: 8px;
+	  padding: 10px 14px;
+	  border-radius: 999px;
+	  border: 1px solid rgba(194,124,14,0.30);
+	  background: rgba(194,124,14,0.16);
+	  color: rgba(255,255,255,0.92);
+	  font-size: 13px;
+	  font-weight: 900;
+	  transition: transform 120ms ease, border-color 120ms ease;
+	  white-space: nowrap;
+	}
+
+	.btn:hover {
+	  transform: translateY(-1px);
+	  border-color: rgba(194,124,14,0.45);
+	}
+
+	/* modal */
+	.modal-bg {
+	  position: fixed;
+	  inset: 0;
+	  background: rgba(0,0,0,0.60);
+	  display:none;
+	  align-items:center;
+	  justify-content:center;
+	  padding: 16px;
+	  z-index: 999;
+	}
+
+	.modal {
+	  width: min(520px, 100%);
+	  background: linear-gradient(180deg, var(--cardA), var(--cardB));
+	  border: 1px solid rgba(255,255,255,0.12);
+	  border-radius: 18px;
+	  box-shadow: 0 16px 60px rgba(0,0,0,0.40);
+	  padding: 16px;
+	  position: relative;
+	}
+
+	.modal h2 {
+	  margin: 0;
+	  font-size: 18px;
+	}
+
+	.modal p {
+	  margin: 10px 0 14px;
+	  color: var(--muted);
+	  font-size: 13px;
+	  line-height: 1.35;
+	}
+
+	.x {
+	  position: absolute;
+	  top: 10px;
+	  right: 10px;
+	  width: 34px;
+	  height: 34px;
+	  border-radius: 12px;
+	  border: 1px solid rgba(255,255,255,0.12);
+	  background: rgba(255,255,255,0.04);
+	  color: rgba(255,255,255,0.85);
+	  cursor: pointer;
+	  display:flex;
+	  align-items:center;
+	  justify-content:center;
+	}
+
+	.x:hover {
+	  border-color: rgba(194,124,14,0.35);
+	}
+
+	.footer {
+	  margin-top: 16px;
+	  color: rgba(255,255,255,0.45);
+	  font-size: 12px;
+	  text-align:center;
+	}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+	<div class="nav">
+	  <div class="brand">
+		<span class="dot"></span>
+		<span>10000x.net</span>
+	  </div>
+
+	  <div class="links">
+		<a class="pill" href="/index.html">Home</a>
+		<a class="pill" href="/factions/">Factions</a>
+		<a class="pill" href="/shop/">Shop</a>
+		<a class="pill" href="/about/">About</a>
+		<button class="pill gold" id="openDiscord" type="button">[[ JOIN DISCORD ]]</button>
+	  </div>
+	</div>
+
+	<div class="hero">
+	  <div class="card pad">
+		<h1>Live Heatmap</h1>
+		<div class="sub">
+		  A quick snapshot of activity across the map. Want in? Join the Discord and pick your faction.
+		</div>
+
+		<div class="kvs">
+		  <div class="kv">
+			<div class="t">Quick Links</div>
+			<div class="v">
+			  <a class="pill" style="margin-top:8px" href="/factions/">🛡️ Factions</a>
+			  <a class="pill" style="margin-top:8px" href="/shop/">🛒 Shop</a>
+			  <a class="pill" style="margin-top:8px" href="/about/">ℹ️ About</a>
+			</div>
+		  </div>
+
+		  <div class="kv">
+			<div class="t">Status</div>
+			<div class="v">Updated automatically by SS9 bot (public output <code>hm.jpg</code>).</div>
+			<div class="v" style="margin-top:8px;color:var(--muted);font-size:12px;">Tip: if the image looks cached, refresh once — it has a timestamp cache-buster.</div>
+		  </div>
+		</div>
+
+		<div class="footer">Test page: <code>/index2.html</code> • Generated: 2026-03-01T16:15:55.870555+00:00</div>
+	  </div>
+
+	  <div class="card heatmap-wrap">
+		<img class="heatmap" src="/hm.jpg?v=1772381755" alt="10000x Heatmap" />
+		<div class="heatmap-bar">
+		  <div class="left">
+			<div class="t">10000x Live Heatmap</div>
+			<div class="s">Click JOIN DISCORD to get whitelisted + factioned up.</div>
+		  </div>
+		  <button class="btn" id="openDiscord2" type="button">JOIN DISCORD</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+  <!-- Discord Modal -->
+  <div class="modal-bg" id="modalBg" aria-hidden="true">
+	<div class="modal" role="dialog" aria-modal="true" aria-label="Join Discord">
+	  <button class="x" id="closeModal" aria-label="Close">×</button>
+	  <h2>Join Our Discord</h2>
+	  <p>
+		Factions, events, rules, and support live here. Click below to join:
+	  </p>
+	  <a class="btn" href="https://discord.gg/10000x" target="_blank" rel="noopener noreferrer">JOIN DISCORD</a>
+	  <div style="margin-top:12px;color:var(--muted);font-size:12px;">
+		Invite: <code>https://discord.gg/10000x</code>
+	  </div>
+	</div>
+  </div>
+
+<script>
+(function() {
+  const bg = document.getElementById("modalBg");
+  const open1 = document.getElementById("openDiscord");
+  const open2 = document.getElementById("openDiscord2");
+  const close = document.getElementById("closeModal");
+
+  function show() {
+	bg.style.display = "flex";
+	bg.setAttribute("aria-hidden", "false");
+  }
+  function hide() {
+	bg.style.display = "none";
+	bg.setAttribute("aria-hidden", "true");
+  }
+
+  open1 && open1.addEventListener("click", show);
+  open2 && open2.addEventListener("click", show);
+  close && close.addEventListener("click", hide);
+
+  bg.addEventListener("click", (e) => {
+	if (e.target === bg) hide();
+  });
+
+  document.addEventListener("keydown", (e) => {
+	if (e.key === "Escape") hide();
+  });
+})();
+</script>
+</body>
+</html>
