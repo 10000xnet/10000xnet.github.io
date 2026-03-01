@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>10000x.net — Factions</title>
+  <style>
+	:root {
+	  --bg: #0b0f14;
+	  --card: rgba(255,255,255,0.06);
+	  --card2: rgba(255,255,255,0.04);
+	  --text: rgba(255,255,255,0.92);
+	  --muted: rgba(255,255,255,0.62);
+	  --gold: #c27c0e;
+	  --line: rgba(255,255,255,0.10);
+	}
+	html, body {
+	  background: radial-gradient(1200px 800px at 20% 0%, rgba(194,124,14,0.14), transparent 55%),
+				  radial-gradient(1200px 800px at 85% 20%, rgba(0,160,255,0.10), transparent 50%),
+				  var(--bg);
+	  color: var(--text);
+	  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+	  margin: 0;
+	}
+	a { color: inherit; text-decoration: none; }
+	.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 16px 60px; }
+	.top {
+	  display:flex; align-items:flex-end; justify-content:space-between; gap: 16px;
+	  border-bottom: 1px solid var(--line);
+	  padding-bottom: 14px;
+	  margin-bottom: 18px;
+	}
+	h1 { margin: 0; font-size: 26px; letter-spacing: 0.2px; }
+	.sub { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+	.search {
+	  display:flex; gap: 10px; align-items:center;
+	  background: rgba(255,255,255,0.05);
+	  border: 1px solid var(--line);
+	  border-radius: 12px;
+	  padding: 10px 12px;
+	  min-width: 260px;
+	}
+	.search input {
+	  width: 100%;
+	  background: transparent;
+	  border: 0;
+	  outline: none;
+	  color: var(--text);
+	  font-size: 14px;
+	}
+	.grid {
+	  display:grid;
+	  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+	  gap: 14px;
+	  margin-top: 16px;
+	}
+	.card {
+	  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.035));
+	  border: 1px solid var(--line);
+	  border-radius: 18px;
+	  padding: 14px 14px 12px;
+	  box-shadow: 0 14px 40px rgba(0,0,0,0.20);
+	  transition: transform 120ms ease, border-color 120ms ease;
+	}
+	.card:hover {
+	  transform: translateY(-2px);
+	  border-color: rgba(194,124,14,0.35);
+	}
+	.head {
+	  display:flex; align-items:center; justify-content:space-between; gap: 12px;
+	  margin-bottom: 8px;
+	}
+	.name {
+	  font-size: 16px;
+	  font-weight: 700;
+	  letter-spacing: 0.2px;
+	  margin: 0;
+	  display:flex; align-items:center; gap: 10px;
+	}
+	.badge {
+	  font-size: 12px;
+	  padding: 4px 8px;
+	  border-radius: 999px;
+	  background: rgba(194,124,14,0.14);
+	  border: 1px solid rgba(194,124,14,0.28);
+	  color: rgba(255,255,255,0.88);
+	  white-space: nowrap;
+	}
+	.flag {
+	  width: 46px; height: 46px;
+	  border-radius: 12px;
+	  overflow:hidden;
+	  background: rgba(255,255,255,0.04);
+	  border: 1px solid var(--line);
+	  flex: 0 0 auto;
+	  display:flex; align-items:center; justify-content:center;
+	}
+	.flag img { width: 100%; height: 100%; object-fit: cover; display:block; }
+	.flag .emo { font-size: 22px; color: rgba(255,255,255,0.85); }
+	.desc {
+	  margin: 8px 0 10px;
+	  color: var(--muted);
+	  font-size: 13px;
+	  line-height: 1.3;
+	  min-height: 34px;
+	}
+	.kv {
+	  display:grid;
+	  grid-template-columns: 1fr 1fr;
+	  gap: 8px;
+	  margin-top: 10px;
+	}
+	.k {
+	  background: rgba(255,255,255,0.04);
+	  border: 1px solid var(--line);
+	  border-radius: 14px;
+	  padding: 9px 10px;
+	}
+	.k .t { font-size: 11px; color: var(--muted); }
+	.k .v { font-size: 13px; margin-top: 2px; }
+	.members {
+	  margin-top: 10px;
+	  background: rgba(255,255,255,0.03);
+	  border: 1px solid var(--line);
+	  border-radius: 14px;
+	  padding: 10px 10px;
+	}
+	.members .t { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+	.pill {
+	  display:inline-block;
+	  margin: 3px 5px 0 0;
+	  padding: 4px 8px;
+	  border-radius: 999px;
+	  background: rgba(255,255,255,0.06);
+	  border: 1px solid rgba(255,255,255,0.10);
+	  font-size: 12px;
+	  color: rgba(255,255,255,0.88);
+	  white-space: nowrap;
+	}
+	.footer {
+	  margin-top: 22px;
+	  color: var(--muted);
+	  font-size: 12px;
+	  border-top: 1px solid var(--line);
+	  padding-top: 12px;
+	}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+	<div class="top">
+	  <div>
+		<h1>🛡️ Factions</h1>
+		<div class="sub">Auto-generated from the live roster DB • Updated: <span id="updated">2026-03-01T15:53:50.452288+00:00</span></div>
+	  </div>
+	  <div class="search">
+		<span style="color:var(--muted);font-size:13px;">🔎</span>
+		<input id="q" placeholder="Search factions / members…" autocomplete="off" />
+	  </div>
+	</div>
+
+	<div class="grid" id="grid">
+	  <div class="card" data-search="Ashen Reavens ar Noriega 822  Noriega 822 sevo881311 Born2Die765 DooM4L petro1x1hi RAW FlatterTAM g u n b u I I Ttv exotic z545 KizerOG LandShark8858">
+  <a href="./ar/">
+	<div class="head">
+	  <div class="name">
+		<span class="flag"><span class="emo">:uec:</span></span>
+		<span>Ashen Reavens</span>
+	  </div>
+	  <span class="badge">AR</span>
+	</div>
+
+	<div class="desc"><span style="color:var(--muted)">(no description)</span></div>
+
+	<div class="kv">
+	  <div class="k">
+		<div class="t">Leader</div>
+		<div class="v"><code>Noriega 822</code></div>
+	  </div>
+	  <div class="k">
+		<div class="t">Armband</div>
+		<div class="v"><code>HunterZ</code></div>
+	  </div>
+	  <div class="k" style="grid-column:1 / span 2;">
+		<div class="t">Co-Leaders</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	</div>
+
+	<div class="members">
+	  <div class="t">Members (10)</div>
+	  <span class="pill">Noriega 822</span><span class="pill">sevo881311</span><span class="pill">Born2Die765</span><span class="pill">DooM4L</span><span class="pill">petro1x1hi</span><span class="pill">RAW FlatterTAM</span><span class="pill">g u n b u I I</span><span class="pill">Ttv exotic z545</span><span class="pill">KizerOG</span><span class="pill">LandShark8858</span>
+	</div>
+  </a>
+</div>
+<div class="card" data-search="Cherno Assassins ca TalkkSick  TalkkSick Sirpassthat DayZgoBye3172 frothski KuruKillerM4">
+  <a href="./ca/">
+	<div class="head">
+	  <div class="name">
+		<span class="flag"><span class="emo">:brain:</span></span>
+		<span>Cherno Assassins</span>
+	  </div>
+	  <span class="badge">CA</span>
+	</div>
+
+	<div class="desc"><span style="color:var(--muted)">(no description)</span></div>
+
+	<div class="kv">
+	  <div class="k">
+		<div class="t">Leader</div>
+		<div class="v"><code>TalkkSick</code></div>
+	  </div>
+	  <div class="k">
+		<div class="t">Armband</div>
+		<div class="v"><code>BrainZ</code></div>
+	  </div>
+	  <div class="k" style="grid-column:1 / span 2;">
+		<div class="t">Co-Leaders</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	</div>
+
+	<div class="members">
+	  <div class="t">Members (5)</div>
+	  <span class="pill">TalkkSick</span><span class="pill">Sirpassthat</span><span class="pill">DayZgoBye3172</span><span class="pill">frothski</span><span class="pill">KuruKillerM4</span>
+	</div>
+  </a>
+</div>
+<div class="card" data-search="DEMON CO dco NXCKMICH  NXCKMICH ON3 QUIK SC0P3 DemonCoTyler vDUTCHvSMOKERv King Cobalt8146 EatSomeCrack69 CptDrift420 GODZIIRRRRA the3443one">
+  <a href="./dco/">
+	<div class="head">
+	  <div class="name">
+		<span class="flag"><span class="emo">:snake:</span></span>
+		<span>DEMON CO</span>
+	  </div>
+	  <span class="badge">DCO</span>
+	</div>
+
+	<div class="desc"><span style="color:var(--muted)">(no description)</span></div>
+
+	<div class="kv">
+	  <div class="k">
+		<div class="t">Leader</div>
+		<div class="v"><code>NXCKMICH</code></div>
+	  </div>
+	  <div class="k">
+		<div class="t">Armband</div>
+		<div class="v"><code>Snake</code></div>
+	  </div>
+	  <div class="k" style="grid-column:1 / span 2;">
+		<div class="t">Co-Leaders</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	</div>
+
+	<div class="members">
+	  <div class="t">Members (9)</div>
+	  <span class="pill">NXCKMICH</span><span class="pill">ON3 QUIK SC0P3</span><span class="pill">DemonCoTyler</span><span class="pill">vDUTCHvSMOKERv</span><span class="pill">King Cobalt8146</span><span class="pill">EatSomeCrack69</span><span class="pill">CptDrift420</span><span class="pill">GODZIIRRRRA</span><span class="pill">the3443one</span>
+	</div>
+  </a>
+</div>
+<div class="card" data-search="KILLBILLIES kb GRANDMASBOXX  GRANDMASBOXX Gr1m R34p3r2011 TexasFMdj KingLuck8783">
+  <a href="./kb/">
+	<div class="head">
+	  <div class="name">
+		<span class="flag"><span class="emo">:dayz:</span></span>
+		<span>KILLBILLIES</span>
+	  </div>
+	  <span class="badge">KB</span>
+	</div>
+
+	<div class="desc"><span style="color:var(--muted)">(no description)</span></div>
+
+	<div class="kv">
+	  <div class="k">
+		<div class="t">Leader</div>
+		<div class="v"><code>GRANDMASBOXX</code></div>
+	  </div>
+	  <div class="k">
+		<div class="t">Armband</div>
+		<div class="v"><code>DayZ</code></div>
+	  </div>
+	  <div class="k" style="grid-column:1 / span 2;">
+		<div class="t">Co-Leaders</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	</div>
+
+	<div class="members">
+	  <div class="t">Members (4)</div>
+	  <span class="pill">GRANDMASBOXX</span><span class="pill">Gr1m R34p3r2011</span><span class="pill">TexasFMdj</span><span class="pill">KingLuck8783</span>
+	</div>
+  </a>
+</div>
+<div class="card" data-search="Order of the Royal Stags ors CognitiveBag  CognitiveBag doddstuntqc ismastube3 runbennierun399 tegridygreen ThepxychoBH TwistdGod710 HighM3Z WAXJACKAL66 VXMdefcon">
+  <a href="./ors/">
+	<div class="head">
+	  <div class="name">
+		<span class="flag"><span class="emo">:ldf:</span></span>
+		<span>Order of the Royal Stags</span>
+	  </div>
+	  <span class="badge">ORS</span>
+	</div>
+
+	<div class="desc"><span style="color:var(--muted)">(no description)</span></div>
+
+	<div class="kv">
+	  <div class="k">
+		<div class="t">Leader</div>
+		<div class="v"><code>CognitiveBag</code></div>
+	  </div>
+	  <div class="k">
+		<div class="t">Armband</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	  <div class="k" style="grid-column:1 / span 2;">
+		<div class="t">Co-Leaders</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	</div>
+
+	<div class="members">
+	  <div class="t">Members (10)</div>
+	  <span class="pill">CognitiveBag</span><span class="pill">doddstuntqc</span><span class="pill">ismastube3</span><span class="pill">runbennierun399</span><span class="pill">tegridygreen</span><span class="pill">ThepxychoBH</span><span class="pill">TwistdGod710</span><span class="pill">HighM3Z</span><span class="pill">WAXJACKAL66</span><span class="pill">VXMdefcon</span>
+	</div>
+  </a>
+</div>
+<div class="card" data-search="S.S. Assulters ssa QSz MONSTER  QSz MONSTER UnusedHeart2913 Biajio BaconWasteland3 chevygonemuding InsertBadGtHere">
+  <a href="./ssa/">
+	<div class="head">
+	  <div class="name">
+		<span class="flag"><span class="emo">:rex:</span></span>
+		<span>S.S. Assulters</span>
+	  </div>
+	  <span class="badge">SSA</span>
+	</div>
+
+	<div class="desc"><span style="color:var(--muted)">(no description)</span></div>
+
+	<div class="kv">
+	  <div class="k">
+		<div class="t">Leader</div>
+		<div class="v"><code>QSz MONSTER</code></div>
+	  </div>
+	  <div class="k">
+		<div class="t">Armband</div>
+		<div class="v"><code>Rex</code></div>
+	  </div>
+	  <div class="k" style="grid-column:1 / span 2;">
+		<div class="t">Co-Leaders</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	</div>
+
+	<div class="members">
+	  <div class="t">Members (6)</div>
+	  <span class="pill">QSz MONSTER</span><span class="pill">UnusedHeart2913</span><span class="pill">Biajio</span><span class="pill">BaconWasteland3</span><span class="pill">chevygonemuding</span><span class="pill">InsertBadGtHere</span>
+	</div>
+  </a>
+</div>
+<div class="card" data-search="Sons of Silence sos ArsenicWall  ArsenicWall">
+  <a href="./sos/">
+	<div class="head">
+	  <div class="name">
+		<span class="flag"><span class="emo">:rsta:</span></span>
+		<span>Sons of Silence</span>
+	  </div>
+	  <span class="badge">SOS</span>
+	</div>
+
+	<div class="desc"><span style="color:var(--muted)">(no description)</span></div>
+
+	<div class="kv">
+	  <div class="k">
+		<div class="t">Leader</div>
+		<div class="v"><code>ArsenicWall</code></div>
+	  </div>
+	  <div class="k">
+		<div class="t">Armband</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	  <div class="k" style="grid-column:1 / span 2;">
+		<div class="t">Co-Leaders</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	</div>
+
+	<div class="members">
+	  <div class="t">Members (1)</div>
+	  <span class="pill">ArsenicWall</span>
+	</div>
+  </a>
+</div>
+<div class="card" data-search="The Cripples crp E D M TEKNO  E D M TEKNO BradfordM1991">
+  <a href="./crp/">
+	<div class="head">
+	  <div class="name">
+		<span class="flag"><span class="emo">:cannibal:</span></span>
+		<span>The Cripples</span>
+	  </div>
+	  <span class="badge">CRP</span>
+	</div>
+
+	<div class="desc">description here</div>
+
+	<div class="kv">
+	  <div class="k">
+		<div class="t">Leader</div>
+		<div class="v"><code>E D M TEKNO</code></div>
+	  </div>
+	  <div class="k">
+		<div class="t">Armband</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	  <div class="k" style="grid-column:1 / span 2;">
+		<div class="t">Co-Leaders</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	</div>
+
+	<div class="members">
+	  <div class="t">Members (2)</div>
+	  <span class="pill">E D M TEKNO</span><span class="pill">BradfordM1991</span>
+	</div>
+  </a>
+</div>
+<div class="card" data-search="The Mother Cluckers tmc Loko De Hialeah  Loko De Hialeah R3vJimJ0n3s DaGrimReeper74 Deathbybacon443">
+  <a href="./tmc/">
+	<div class="head">
+	  <div class="name">
+		<span class="flag"><span class="emo">:rooster:</span></span>
+		<span>The Mother Cluckers</span>
+	  </div>
+	  <span class="badge">TMC</span>
+	</div>
+
+	<div class="desc">Straight shooters in this Faction</div>
+
+	<div class="kv">
+	  <div class="k">
+		<div class="t">Leader</div>
+		<div class="v"><code>Loko De Hialeah</code></div>
+	  </div>
+	  <div class="k">
+		<div class="t">Armband</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	  <div class="k" style="grid-column:1 / span 2;">
+		<div class="t">Co-Leaders</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	</div>
+
+	<div class="members">
+	  <div class="t">Members (4)</div>
+	  <span class="pill">Loko De Hialeah</span><span class="pill">R3vJimJ0n3s</span><span class="pill">DaGrimReeper74</span><span class="pill">Deathbybacon443</span>
+	</div>
+  </a>
+</div>
+<div class="card" data-search="The Old Guard tog wade1235679 PoppaSnipe PoppaSnipe wade1235679 vvDerrixk KREEPINxKILLA Kriptic eye Matsaev3775 ID IE V T IH CARTELTERROR786 SatyrStriker XentityX9217 SlickCanadian ykSpifxy D3VOT10N LdbSnipe SocialTV559 SUS3243">
+  <a href="./tog/">
+	<div class="head">
+	  <div class="name">
+		<span class="flag"><span class="emo">:police:</span></span>
+		<span>The Old Guard</span>
+	  </div>
+	  <span class="badge">TOG</span>
+	</div>
+
+	<div class="desc">For every action there’s a reaction!</div>
+
+	<div class="kv">
+	  <div class="k">
+		<div class="t">Leader</div>
+		<div class="v"><code>wade1235679</code></div>
+	  </div>
+	  <div class="k">
+		<div class="t">Armband</div>
+		<div class="v"><code>Red</code></div>
+	  </div>
+	  <div class="k" style="grid-column:1 / span 2;">
+		<div class="t">Co-Leaders</div>
+		<div class="v"><code>PoppaSnipe</code></div>
+	  </div>
+	</div>
+
+	<div class="members">
+	  <div class="t">Members (16)</div>
+	  <span class="pill">PoppaSnipe</span><span class="pill">wade1235679</span><span class="pill">vvDerrixk</span><span class="pill">KREEPINxKILLA</span><span class="pill">Kriptic eye</span><span class="pill">Matsaev3775</span><span class="pill">ID IE V T IH</span><span class="pill">CARTELTERROR786</span><span class="pill">SatyrStriker</span><span class="pill">XentityX9217</span><span class="pill">SlickCanadian</span><span class="pill">ykSpifxy</span><span class="pill">D3VOT10N</span><span class="pill">LdbSnipe</span><span class="pill" style="opacity:0.75">+2 more</span>
+	</div>
+  </a>
+</div>
+<div class="card" data-search="The Zenitors zen babyblue1422  babyblue1422 DrunkO Driscoll SlumDawg6173 OldGuy598103 megahurtme MONSTER132546 O BLACK 1 Duckman4201109 SubieSaiyan94 SpongyPrince9 cpt whupas Kookahyna">
+  <a href="./zen/">
+	<div class="head">
+	  <div class="name">
+		<span class="flag"><span class="emo">:zenit:</span></span>
+		<span>The Zenitors</span>
+	  </div>
+	  <span class="badge">ZEN</span>
+	</div>
+
+	<div class="desc"><span style="color:var(--muted)">(no description)</span></div>
+
+	<div class="kv">
+	  <div class="k">
+		<div class="t">Leader</div>
+		<div class="v"><code>babyblue1422</code></div>
+	  </div>
+	  <div class="k">
+		<div class="t">Armband</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	  <div class="k" style="grid-column:1 / span 2;">
+		<div class="t">Co-Leaders</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	</div>
+
+	<div class="members">
+	  <div class="t">Members (12)</div>
+	  <span class="pill">babyblue1422</span><span class="pill">DrunkO Driscoll</span><span class="pill">SlumDawg6173</span><span class="pill">OldGuy598103</span><span class="pill">megahurtme</span><span class="pill">MONSTER132546</span><span class="pill">O BLACK 1</span><span class="pill">Duckman4201109</span><span class="pill">SubieSaiyan94</span><span class="pill">SpongyPrince9</span><span class="pill">cpt whupas</span><span class="pill">Kookahyna</span>
+	</div>
+  </a>
+</div>
+<div class="card" data-search="Vortex vx Defoplayz123  Defoplayz123">
+  <a href="./vx/">
+	<div class="head">
+	  <div class="name">
+		<span class="flag"><span class="emo">:ssahrani:</span></span>
+		<span>Vortex</span>
+	  </div>
+	  <span class="badge">VX</span>
+	</div>
+
+	<div class="desc">update me</div>
+
+	<div class="kv">
+	  <div class="k">
+		<div class="t">Leader</div>
+		<div class="v"><code>Defoplayz123</code></div>
+	  </div>
+	  <div class="k">
+		<div class="t">Armband</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	  <div class="k" style="grid-column:1 / span 2;">
+		<div class="t">Co-Leaders</div>
+		<div class="v"><code>—</code></div>
+	  </div>
+	</div>
+
+	<div class="members">
+	  <div class="t">Members (1)</div>
+	  <span class="pill">Defoplayz123</span>
+	</div>
+  </a>
+</div>
+	</div>
+
+	<div class="footer">
+	  Tip: this is a static GitHub Pages build. Next upgrades can add sorting, filters, roster stats, and “recent changes”.
+	</div>
+  </div>
+
+<script>
+(function() {
+  const q = document.getElementById("q");
+  const cards = Array.from(document.querySelectorAll(".card"));
+  function norm(s) { return (s||"").toLowerCase(); }
+  q.addEventListener("input", () => {
+	const needle = norm(q.value).trim();
+	for (const c of cards) {
+	  const hay = norm(c.getAttribute("data-search") || "");
+	  c.style.display = (!needle || hay.includes(needle)) ? "" : "none";
+	}
+  });
+})();
+</script>
+</body>
+</html>
