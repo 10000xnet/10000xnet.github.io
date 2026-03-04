@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>10000x.net — About</title>
+  <title>10000x.net — Heatmap</title>
   <link rel="stylesheet" href="/assets/css/site.css" />
   <script>
     window.DISCORD_INVITE = "https://discord.gg/10000x";
   </script>
 </head>
-<body class="">
+<body class="has-heatmap">
   <div class="wrap">
     <div class="nav">
       <div class="brand">
@@ -25,15 +25,22 @@
 
     
 <div class="card pad">
-  <h1>About</h1>
-  <div class="sub">
-    10000x.net is a DayZ Xbox community built around fast PvP, faction warfare, and automated server tooling.
-    This page is a placeholder — we can add rules, server info, wipes, and feature highlights next.
-  </div>
-  <div class="footer" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-    <a class="pill" href="/factions/">View Factions</a>
-    <a class="pill" href="/heatmap.html">Heatmap</a>
-    <button class="pill gold" type="button" data-open-discord="1">Join Discord</button>
+  <h1>Live Heatmap</h1>
+  <div class="sub">Full-size heatmap view. Use fullscreen for the best experience.</div>
+  <div class="footer"><a class="pill" href="/index.html">← Back</a></div>
+</div>
+
+<div class="card heatmap-wrap heatmap-full" id="heatmapWrap">
+  <img class="heatmap" src="/hm.jpg" alt="10000x Heatmap" />
+  <div class="heatmap-bar">
+    <div class="left">
+      <div class="t">Heatmap</div>
+      <div class="s">Tip: press Fullscreen, then ESC to exit.</div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn" id="fullscreenBtn" type="button">FULLSCREEN</button>
+      <button class="btn" type="button" data-open-discord="1">JOIN DISCORD</button>
+    </div>
   </div>
 </div>
 

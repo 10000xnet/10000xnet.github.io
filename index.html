@@ -1,158 +1,74 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0R70YFJ58J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-0R70YFJ58J');
-</script>
-    <title>10000x.net</title>
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden; /* Prevent scrolling */
-        }
-
-        body {
-            background: url(/hm.jpg) no-repeat center center fixed;
-            background-size: contain; /* Maintain proportions and fit within the viewport */
-            background-color: #000000;
-            background-repeat: no-repeat; /* Prevent repeating the background image */
-            padding-top: 50px; /* Add buffer equal to the height of the nav bar */
-        }
-
-        nav {
-            width: 100%;
-            background: #0043d4; /* Set background color for the navigation bar */
-            padding: 10px 0; /* Add some top and bottom padding to the navigation bar */
-            box-sizing: border-box;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 100; /* Ensure the nav is on top of other elements */
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            text-align: center; /* Center-align the navigation links */
-        }
-
-        nav ul li {
-            display: inline-block; /* Display list items on the same line */
-            margin: 0 5px; /* Add some horizontal spacing between menu items */
-        }
-
-        nav ul li a {
-            text-align: center;
-            display: block;
-            background: #0043d4;
-            color: white;
-            font-weight: bold;
-            font-family: Arial, sans-serif;
-            text-decoration: none;
-            padding: 10px 15px; /* Adjust padding for better appearance */
-            border-radius: 8px; /* Add border-radius for rounded corners */
-        }
-
-        nav ul li a:hover {
-            background: #0f0245;
-        }
-
-        /* Popup Styles - More Professional Look */
-        .popup {
-            display: none; /* Hidden by default */
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for better focus on popup */
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .popup-content {
-            background-color: #fff;
-            padding: 25px;
-            border-radius: 15px; /* Smoother border radius */
-            text-align: center;
-            width: 90%;
-            max-width: 600px; /* Wider and more balanced dimensions */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #333; /* Darker color for better contrast */
-        }
-
-        .join-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #0043d4; /* Thematic consistency with navigation bar */
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-        }
-
-        .join-btn:hover {
-            background-color: #0032a0;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>10000x.net</title>
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <script>
+    window.DISCORD_INVITE = "https://discord.gg/10000x";
+  </script>
 </head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/shop.html">SHOP</a></li>
-            <li><a href="/about.html">ABOUT</a></li>
-            <li><a href="mailto:admin@10000x.net">CONTACT</a></li>
-            <li><a href="https://discord.gg/AkGGBegAgf">[[ JOIN DISCORD ]]</a></li>
-        </ul>
-    </nav>
-    <!-- Popup HTML -->
-    <div id="discord-popup" class="popup">
-        <div class="popup-content">
-            <span id="close-popup" class="close-btn">&times;</span>
-            <h2>Join Our Discord!</h2>
-            <a href="https://discord.gg/AkGGBegAgf" class="join-btn" target="_blank">JOIN DISCORD</a>
+<body class="has-heatmap">
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <img src="/assets/img/logo_wide.png" alt="10000x.net" onerror="this.style.display='none'">
+      </div>
+      <div class="links">
+        <a class="pill" href="/index.html">Home</a>
+        <a class="pill" href="/heatmap.html">Heatmap</a>
+        <a class="pill" href="/about.html">About</a>
+        <button class="pill gold" type="button" data-open-discord="1">Join Discord</button>
+      </div>
+    </div>
+
+    
+<div class="card pad">
+  <h1>Live Heatmap</h1>
+  <div class="sub">A quick snapshot of activity across the map. Join Discord to get whitelisted and factioned up.</div>
+  <div class="footer">10000x.net • LOOT SHACKS • PvP</div>
+</div>
+
+<div class="card heatmap-wrap" id="heatmapWrap">
+  <img class="heatmap" src="/hm.jpg" alt="10000x Heatmap" />
+  <div class="heatmap-bar" style="pointer-events:none">
+    <div class="left" style="pointer-events:none">
+      <div class="t">10000x Live Heatmap</div>
+      <div class="s">Open full view via Heatmap page.</div>
+    </div>
+    <a class="btn" href="/heatmap.html" style="pointer-events:auto">OPEN HEATMAP</a>
+  </div>
+</div>
+
+  </div>
+
+  <div class="toast" id="discordToast">
+    <div class="toast-inner">
+      <div class="toast-top">
+        <div style="min-width:0">
+          <div class="toast-title">Join the Discord</div>
+          <div class="toast-sub">Factions, whitelist, events, rules & support.</div>
         </div>
-    </div> -->
+        <button class="toast-close" id="toastClose" aria-label="Close">×</button>
+      </div>
+      <div class="toast-actions">
+        <button class="btn" id="toastJoin" type="button">Join Discord</button>
+        <a class="pill" href="/factions/" style="border-radius:999px">View Factions</a>
+      </div>
+    </div>
+  </div>
 
-    <script>
-        window.onload = () => {
-            const popup = document.getElementById('discord-popup');
+  <div class="modal-bg" id="modalBg" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Join Discord">
+      <button class="x" id="closeModal" aria-label="Close">×</button>
+      <h2>Join Our Discord</h2>
+      <p>Factions, events, rules, and support live here. Click below to join:</p>
+      <a class="btn" id="discordInviteLink" href="https://discord.gg/10000x" target="_blank" rel="noopener noreferrer">JOIN DISCORD</a>
+      <div style="margin-top:12px;color:var(--muted);font-size:12px;">Invite: <code id="discordInviteCode">https://discord.gg/10000x</code></div>
+    </div>
+  </div>
 
-            // Display the popup automatically when the page is loaded
-            popup.style.display = 'flex';
-
-            // Hide popup when the close button is clicked
-            document.getElementById('close-popup').addEventListener('click', () => {
-                popup.style.display = 'none'; 
-            });
-
-            // Hide popup when clicking outside of the popup content
-            window.addEventListener('click', (event) => {
-                if (event.target === popup) {
-                    popup.style.display = 'none';
-                }
-            });
-        };
-    </script>
+  <script src="/assets/js/site.js"></script>
 </body>
 </html>
