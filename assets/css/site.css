@@ -7,7 +7,9 @@
   --cardA:rgba(255,255,255,.06);
   --cardB:rgba(255,255,255,.035);
 }
+
 *{box-sizing:border-box}
+
 html,body{
   margin:0;
   background:
@@ -17,8 +19,11 @@ html,body{
   color:var(--text);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
 }
+
 a{color:inherit;text-decoration:none}
+
 .wrap{max-width:1180px;margin:0 auto;padding:18px 16px 70px}
+
 .card{
   background:linear-gradient(180deg,var(--cardA),var(--cardB));
   border:1px solid var(--line);
@@ -26,15 +31,20 @@ a{color:inherit;text-decoration:none}
   box-shadow:0 14px 40px rgba(0,0,0,.20);
   overflow:hidden;
 }
+
 .pad{padding:16px}
+
 .nav{
   display:flex;align-items:center;justify-content:space-between;gap:14px;
   border-bottom:1px solid var(--line);
   padding:10px 0 14px;margin-bottom:18px;
 }
+
 .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.2px}
 .brand img{height:34px;width:auto;display:block}
+
 .links{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+
 .pill{
   display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border-radius:999px;
   background:rgba(255,255,255,.05);border:1px solid var(--line);
@@ -43,86 +53,102 @@ a{color:inherit;text-decoration:none}
 }
 .pill:hover{transform:translateY(-1px);border-color:rgba(194,124,14,.35)}
 .pill.gold{background:rgba(194,124,14,.14);border-color:rgba(194,124,14,.30)}
+
 h1{margin:0;font-size:26px;letter-spacing:.2px}
 .sub{margin-top:8px;color:var(--muted);font-size:14px;line-height:1.35}
 .footer{margin-top:10px;color:rgba(255,255,255,.45);font-size:12px;text-align:center}
-.heatmap-wrap{margin-top:14px;position:relative;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.22)}
-.heatmap{width:100%;height:auto;display:block;max-height:80vh;object-fit:contain}
-.heatmap-full .heatmap{max-height: calc(100vh - 140px);}
-.heatmap-bar{
-  position:relative;
-  margin-top:10px;
 
+/* Heatmap */
+.heatmap-wrap{
+  margin-top:14px;
+  background:rgba(0,0,0,.22);
+  display:flex;
+  flex-direction:column;   /* KEY: bar goes below image */
+  align-items:stretch;
+}
+
+.heatmap{
+  width:100%;
+  height:auto;
+  display:block;
+  max-height:80vh;
+  object-fit:contain;
+}
+
+.heatmap-bar{
+  position:relative;       /* KEY: not overlay */
+  margin:10px 12px 12px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:10px;
-
   padding:10px 12px;
   border-radius:14px;
-
   background:rgba(11,15,20,.72);
   border:1px solid rgba(255,255,255,.10);
-
   backdrop-filter:blur(8px);
 }
+
 .heatmap-bar .left{display:flex;flex-direction:column;gap:2px;min-width:0}
 .heatmap-bar .left .t{font-size:12px;color:rgba(255,255,255,.88);font-weight:800;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .heatmap-bar .left .s{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
 .btn{
-  cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:10px 14px;border-radius:999px;border:1px solid rgba(194,124,14,.30);
-  background:rgba(194,124,14,.16);color:rgba(255,255,255,.92);
-  font-size:13px;font-weight:900;transition:transform 120ms ease,border-color 120ms ease;white-space:nowrap;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(194,124,14,.30);
+  background:rgba(194,124,14,.16);
+  color:rgba(255,255,255,.92);
+  font-size:13px;
+  font-weight:900;
+  transition:transform 120ms ease,border-color 120ms ease;
+  white-space:nowrap;
 }
 .btn:hover{transform:translateY(-1px);border-color:rgba(194,124,14,.45)}
+
 /* Modal */
 .modal-bg{
-  position:fixed;inset:0;background:rgba(0,0,0,.60);
-  display:none;align-items:center;justify-content:center;padding:16px;z-index:999;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.60);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+  z-index:999;
 }
+
 .modal{
-  width:min(520px,100%);
+  width:min(620px,100%);
   background:linear-gradient(180deg,var(--cardA),var(--cardB));
   border:1px solid rgba(255,255,255,.12);
   border-radius:18px;
   box-shadow:0 16px 60px rgba(0,0,0,.40);
-  padding:16px;position:relative;
+  padding:18px;
+  position:relative;
 }
-.modal h2{margin:0;font-size:18px}
-.modal p{margin:10px 0 14px;color:var(--muted);font-size:13px;line-height:1.35}
+
+.modal h2{margin:0;font-size:22px}
+.modal p{margin:10px 0 14px;color:var(--muted);font-size:14px;line-height:1.35}
+
 .x{
-  position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:12px;
-  border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);
-  color:rgba(255,255,255,.85);cursor:pointer;display:flex;align-items:center;justify-content:center;
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:34px;
+  height:34px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.04);
+  color:rgba(255,255,255,.85);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .x:hover{border-color:rgba(194,124,14,.35)}
-/* Auto pop toast */
-.toast{
-  position:fixed;
-  right:16px;
-  bottom:16px;
-  width:min(360px,calc(100% - 32px));
-  z-index:998;
-  display:none;
-}
-.toast-inner{
-  background:rgba(11,15,20,.70);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:18px;
-  box-shadow:0 16px 60px rgba(0,0,0,.35);
-  padding:12px 12px;
-  backdrop-filter: blur(8px);
-}
-.toast-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-.toast-title{font-weight:900;font-size:14px;letter-spacing:.2px;margin:0}
-.toast-sub{margin-top:6px;color:var(--muted);font-size:12px;line-height:1.3}
-.toast-actions{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
-.toast-close{
-  width:30px;height:30px;border-radius:12px;border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.04);color:rgba(255,255,255,.85);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;flex:0 0 auto;
-}
-.toast-close:hover{border-color:rgba(194,124,14,.35)}
-/* Keep toast from covering heatmap */
-body.has-heatmap .toast{ bottom: 96px; }
