@@ -21,44 +21,32 @@
   bg && bg.addEventListener("click", (e)=>{ if(e.target===bg) hideModal(); });
   document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") hideModal(); });
 
-  // Toast (auto pop once per day)
-  const toast = document.getElementById("discordToast");
-  const toastClose = document.getElementById("toastClose");
-  const toastJoin = document.getElementById("toastJoin");
-  const ONE_DAY_MS = 24*60*60*1000;
+// Show modal for new visitors (once per day)
+const ONE_DAY = 24 * 60 * 60 * 1000;
 
-  function getCookie(name){
-    const m = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'));
-    return m ? decodeURIComponent(m[1]) : null;
-  }
-  function setCookie(name, value, ms){
-    const d = new Date(Date.now()+ms);
-    document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + d.toUTCString() + "; path=/; SameSite=Lax";
-  }
+function getCookie(name){
+  const m = document.cookie.match(
+    new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\\[\\]\\\\\\/\\+^])/g, '\\$1') + '=([^;]*)')
+  );
+  return m ? decodeURIComponent(m[1]) : null;
+}
 
-  function showToast(){
-    if(!toast) return;
-    toast.style.display = "block";
-  }
-  function hideToast(){
-    if(!toast) return;
-    toast.style.display = "none";
-  }
+function setCookie(name,value,ms){
+  const d = new Date(Date.now()+ms);
+  document.cookie = name + "=" + encodeURIComponent(value) +
+    "; expires=" + d.toUTCString() +
+    "; path=/; SameSite=Lax";
+}
 
-  toastClose && toastClose.addEventListener("click", ()=>{
-    setCookie("discord_toast_hide","1",ONE_DAY_MS);
-    hideToast();
-  });
-  toastJoin && toastJoin.addEventListener("click", ()=>{
-    setCookie("discord_toast_hide","1",ONE_DAY_MS);
-    hideToast();
+const visited = getCookie("discord_modal_seen");
+
+if(!visited){
+  setTimeout(()=>{
     showModal();
-  });
+  },500);
 
-  const hidden = getCookie("discord_toast_hide");
-  if(!hidden){
-    setTimeout(showToast, 450);
-  }
+  setCookie("discord_modal_seen","1",ONE_DAY);
+}
 
   // Inject invite
   const modalLink = document.getElementById("discordInviteLink");
