@@ -6,6 +6,7 @@
   <title>10000x.net</title>
   <link rel="stylesheet" href="/assets/css/site.css" />
   <script>
+    // change this if you ever update the invite
     window.DISCORD_INVITE = "https://discord.gg/10000x";
   </script>
 </head>
@@ -26,19 +27,34 @@
 
     <div class="card pad">
       <h1>Live Heatmap</h1>
-      <div class="sub">A quick snapshot of activity across the map. Join Discord to get access to additional features, rules, killfeeds and more..</div>
+      <div class="sub">A quick snapshot of activity across the map. Join Discord for killfeed, rules and more.</div>
       <div class="footer">10000x.net • LOOT SHACKS • PvP</div>
     </div>
 
-  <!-- Discord Modal -->
+    <div class="card heatmap-wrap" id="heatmapWrap">
+      <img class="heatmap" src="/hm.jpg" alt="10000x Heatmap" />
+      <div class="heatmap-bar">
+        <div class="left">
+          <div class="t">10000x Live Heatmap</div>
+          <div class="s">Open full view via Heatmap page.</div>
+        </div>
+        <a class="btn" href="/heatmap.html">OPEN HEATMAP</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Discord Modal (auto opens for new visitors once/day) -->
   <div class="modal-bg" id="modalBg" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-label="Join Discord">
       <button class="x" id="closeModal" aria-label="Close">×</button>
-      <img src="/assets/img/logo_square.png" style="height:80px;margin-bottom:10px;">
       <h2>Join Our Discord</h2>
       <p>Factions, events, rules, and support live here. Click below to join:</p>
-      <a class="btn" id="discordInviteLink" href="https://discord.gg/10000x" target="_blank" rel="noopener noreferrer">JOIN DISCORD</a>
-      <div style="margin-top:12px;color:var(--muted);font-size:12px;">Invite: <code id="discordInviteCode">https://discord.gg/10000x</code></div>
+      <a class="btn" id="discordInviteLink" href="https://discord.gg/10000x" target="_blank" rel="noopener noreferrer">
+        JOIN DISCORD
+      </a>
+      <div style="margin-top:12px;color:var(--muted);font-size:12px;">
+        Invite: <code id="discordInviteCode">https://discord.gg/10000x</code>
+      </div>
     </div>
   </div>
 
