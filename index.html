@@ -9,6 +9,7 @@
     window.DISCORD_INVITE = "https://discord.gg/10000x";
   </script>
 </head>
+
 <body class="has-heatmap">
   <div class="wrap">
     <div class="nav">
@@ -23,26 +24,25 @@
       </div>
     </div>
 
-    
-<div class="card pad">
-  <h1>Live Heatmap</h1>
-  <div class="sub">A quick snapshot of activity across the map. Join Discord for all server features.</div>
-  <div class="footer">10000x.net • LOOT SHACKS • PvP</div>
-</div>
-
-<div class="card heatmap-wrap" id="heatmapWrap">
-  <img class="heatmap" src="/hm.jpg" alt="10000x Heatmap" />
-  <div class="heatmap-bar" style="pointer-events:none">
-    <div class="left" style="pointer-events:none">
-      <div class="t">10000x Live Heatmap</div>
-      <div class="s">Open full view via Heatmap page.</div>
+    <div class="card pad">
+      <h1>Live Heatmap</h1>
+      <div class="sub">A quick snapshot of activity across the map. Join Discord to get whitelisted and factioned up.</div>
+      <div class="footer">10000x.net • LOOT SHACKS • PvP</div>
     </div>
-    <a class="btn" href="/heatmap.html" style="pointer-events:auto">OPEN HEATMAP</a>
-  </div>
-</div>
 
+    <div class="card heatmap-wrap" id="heatmapWrap">
+      <img class="heatmap" src="/hm.jpg" alt="10000x Heatmap" />
+      <div class="heatmap-bar">
+        <div class="left">
+          <div class="t">10000x Live Heatmap</div>
+          <div class="s">Open full view via Heatmap page.</div>
+        </div>
+        <a class="btn" href="/heatmap.html">OPEN HEATMAP</a>
+      </div>
+    </div>
   </div>
 
+  <!-- Auto toast (shows once per day) -->
   <div class="toast" id="discordToast">
     <div class="toast-inner">
       <div class="toast-top">
@@ -54,10 +54,12 @@
       </div>
       <div class="toast-actions">
         <button class="btn" id="toastJoin" type="button">Join Discord</button>
+        <a class="pill" href="/factions/" style="border-radius:999px">View Factions</a>
       </div>
     </div>
   </div>
 
+  <!-- Discord Modal -->
   <div class="modal-bg" id="modalBg" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-label="Join Discord">
       <button class="x" id="closeModal" aria-label="Close">×</button>
