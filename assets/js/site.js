@@ -60,7 +60,16 @@
     setTimeout(showModal, 500);
     setCookie("discord_modal_seen", "1", ONE_DAY_MS);
   }
+// Heatmap auto refresh every 60 seconds
+const heatmap = document.getElementById("heatmapImg");
 
+if (heatmap) {
+  setInterval(() => {
+    const base = "/hm.jpg";
+    heatmap.src = base + "?t=" + Date.now();
+  }, 60000);
+}
+  
   // Fullscreen support (only on heatmap.html if button exists)
   const fsBtn = document.getElementById("fullscreenBtn");
   const hmWrap = document.getElementById("heatmapWrap");
