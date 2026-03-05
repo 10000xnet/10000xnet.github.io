@@ -69,21 +69,17 @@
   // Auto-open modal for new visitors (once per day)
   const seen = getCookie("discord_modal_seen");
   if(!seen){
-    // only auto-open if the modal exists on this page
     if(bg) setTimeout(showModal, 500);
     setCookie("discord_modal_seen", "1", ONE_DAY_MS);
   }
 
   // -----------------------------
   // Heatmap refresh (every 60s)
-  // Works on any page that has #heatmapImg
   // -----------------------------
   const heatmap = document.getElementById("heatmapImg");
   if(heatmap){
     const baseSrc = (heatmap.getAttribute("src") || "/hm.jpg").split("?")[0];
-
     setInterval(() => {
-      // bust cache without reloading page
       heatmap.src = baseSrc + "?t=" + Date.now();
     }, 60000);
   }
