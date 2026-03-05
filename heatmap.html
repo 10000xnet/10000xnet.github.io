@@ -31,7 +31,16 @@
 </div>
 
 <div class="card heatmap-wrap heatmap-full" id="heatmapWrap">
-  <img id="heatmapImg" class="heatmap" src="/hm.jpg" alt="10000x Heatmap" />
+  <img id="heatmap" src="/hm.jpg" class="heatmap">
+
+<script>
+function refreshHeatmap(){
+  const img = document.getElementById("heatmap");
+  img.src = "/hm.jpg?t=" + new Date().getTime();
+}
+
+setInterval(refreshHeatmap, 10000);
+</script>
   <div class="heatmap-bar">
     <div class="left">
       <div class="t">Heatmap</div>
