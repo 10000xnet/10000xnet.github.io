@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>10000x.net — Clips</title>
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <script>
+    window.DISCORD_INVITE = "https://discord.gg/10000x";
+  </script>
+
+  <style>
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (min-width: 980px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+    }
+
+    .row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-start;
+      margin-top:10px;
+    }
+
+    .muted{ color: var(--muted); font-size:13px; line-height:1.35; }
+
+    /* Make TikTok embeds look nicer inside our cards */
+    .embed-wrap{
+      display:flex;
+      justify-content:center;
+      padding: 8px 0 2px;
+    }
+
+    /* TikTok injects its own styles; this keeps card spacing tidy */
+    .embed-wrap blockquote{
+      margin: 0 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <img src="/assets/img/logo_wide.png" alt="10000x.net" onerror="this.style.display='none'">
+      </div>
+      <div class="links">
+        <a class="pill" href="/index.html">Home</a>
+        <a class="pill" href="/heatmap.html">Heatmap</a>
+        <a class="pill" href="/rules.html">Rules</a>
+        <a class="pill" href="/clips.html">Clips</a>
+        <button class="pill gold" type="button" data-open-discord="1">Join Discord</button>
+      </div>
+    </div>
+
+    <div class="card pad">
+      <h1>🎬 Clips</h1>
+      <div class="muted">
+        Highlight reels, raids, and PvP moments from TikTok.
+      </div>
+
+      <div class="row">
+        <a class="pill" href="https://www.tiktok.com/@10000x.net/" target="_blank" rel="noopener noreferrer">
+          📱 TikTok: @10000x.net
+        </a>
+        <button class="pill gold" type="button" data-open-discord="1">Join Discord</button>
+      </div>
+    </div>
+
+    <div class="grid">
+
+      <!-- ==========
+           HOW TO ADD CLIPS:
+           1) Go to a TikTok video
+           2) Copy the full URL like:
+              https://www.tiktok.com/@10000x.net/video/1234567890123456789
+           3) Paste it into the cite= and the <a href= below.
+           ========== -->
+
+      <div class="card pad">
+        <h2 style="margin:0;font-size:16px;letter-spacing:.2px;font-weight:900;">🔥 Featured Clip #1</h2>
+        <div class="embed-wrap">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@10000x.net/video/7604319174227152136"
+            data-embed-from="oembed"
+            style="max-width:605px;min-width:325px;">
+            <section>
+              <a target="_blank" href="https://www.tiktok.com/@10000x.net/video/7604319174227152136">Watch on TikTok</a>
+            </section>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="card pad">
+        <h2 style="margin:0;font-size:16px;letter-spacing:.2px;font-weight:900;">⚡ Featured Clip #2</h2>
+        <div class="embed-wrap">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@10000x.net/video/7611950580033932552"
+            data-embed-from="oembed"
+            style="max-width:605px;min-width:325px;">
+            <section>
+              <a target="_blank" href="https://www.tiktok.com/@10000x.net/video/7611950580033932552">Watch on TikTok</a>
+            </section>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="card pad">
+        <h2 style="margin:0;font-size:16px;letter-spacing:.2px;font-weight:900;">💥 Featured Clip #3</h2>
+        <div class="embed-wrap">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@10000x.net/video/7607507106597457170"
+            data-embed-from="oembed"
+            style="max-width:605px;min-width:325px;">
+            <section>
+              <a target="_blank" href="https://www.tiktok.com/@10000x.net/video/7607507106597457170">Watch on TikTok</a>
+            </section>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="card pad">
+        <h2 style="margin:0;font-size:16px;letter-spacing:.2px;font-weight:900;">🏴‍☠️ Featured Clip #4</h2>
+        <div class="embed-wrap">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@10000x.net/video/7605049461626178823"
+            data-embed-from="oembed"
+            style="max-width:605px;min-width:325px;">
+            <section>
+              <a target="_blank" href="https://www.tiktok.com/@10000x.net/video/7605049461626178823">Watch on TikTok</a>
+            </section>
+          </blockquote>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Discord Modal (your existing modal pattern) -->
+  <div class="modal-bg" id="modalBg" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Join Discord">
+      <button class="x" id="closeModal" aria-label="Close">×</button>
+      <h2>Join Our Discord</h2>
+      <p>Factions, events, rules, and support live here. Click below to join:</p>
+      <a class="btn" id="discordInviteLink" href="https://discord.gg/10000x" target="_blank" rel="noopener noreferrer">JOIN DISCORD</a>
+      <div style="margin-top:12px;color:var(--muted);font-size:12px;">
+        Invite: <code id="discordInviteCode">https://discord.gg/10000x</code>
+      </div>
+    </div>
+  </div>
+
+  <!-- TikTok embed script -->
+  <script async src="https://www.tiktok.com/embed.js"></script> <!-- official embed -->
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>
