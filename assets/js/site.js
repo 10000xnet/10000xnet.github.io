@@ -3,15 +3,15 @@
   const ONE_DAY_MS = 24 * 60 * 60 * 1000;
 
   function getCookie(name){
-    try{
-      const m = document.cookie.match(
-        new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\\[\\]\\\\\\/\\+^])/g, '\\$1') + '=([^;]*)')
-      );
-      return m ? decodeURIComponent(m[1]) : null;
-    }catch(e){
-      return null;
+  const cookies = document.cookie.split("; ");
+  for (let i = 0; i < cookies.length; i++) {
+    const parts = cookies[i].split("=");
+    if (parts[0] === name) {
+      return decodeURIComponent(parts[1]);
     }
   }
+  return null;
+}
 
   function setCookie(name, value, ms){
     try{
